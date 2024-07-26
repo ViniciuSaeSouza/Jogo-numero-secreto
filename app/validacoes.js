@@ -2,12 +2,30 @@
 let acertou = false;
 
 function verificaSeOChutePossuiUmValorValido(chute) {
+  if (chute == "game over") {
+    document.body.innerHTML = `
+            <h1>GAME OVER</h1>
+            <h2>Tentar novamente?</h2>
+            <button id="jogar-novamente" class='btn-jogar-novamente btn-gameover'>Jogar novamente</button>
+        `;
+    document.body.style.backgroundColor = "red";
+  }
+
   // Faz o casting da string 'chute' para inteiro
   const numero = parseInt(chute);
 
   // Se a função chute for inválido retornar true, mostra a mensagem de erro e para a função
   if (chuteForInvalido(numero)) {
-    elementoChute.innerHTML += "<div>Valor inválido.</div>";
+    if (chute == "game over") {
+      document.body.innerHTML = `
+            <h1>GAME OVER</h1>
+            <h2>Tentar novamente?</h2>
+            <button id="jogar-novamente" class='btn-jogar-novamente btn-gameover'>Jogar novamente</button>
+        `;
+      document.body.style.backgroundColor = "red";
+    } else {
+      elementoChute.innerHTML += "<div>Valor inválido.</div>";
+    }
     return;
   }
 
@@ -47,7 +65,7 @@ function chuteForaDoEscopo(numero) {
 }
 
 // Escuta o click no botão jogar novamente e da reload na página quando acontece o evento(e)
-document.body.addEventListener("click", e => {
+document.body.addEventListener("click", (e) => {
   if (e.target.id == "jogar-novamente") {
     window.location.reload();
   }

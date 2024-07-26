@@ -67,3 +67,8 @@ h3 {
     border-color: var(--bg-color);
     color: var(--bg-color);
 }
+
+.btn-gameover:hover {
+    color: black;
+    border-color: black;
+}
