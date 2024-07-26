@@ -47,8 +47,8 @@ function chuteForaDoEscopo(numero) {
 }
 
 // Escuta o click no botão jogar novamente e da reload na página quando acontece o evento(e)
-document.body.addEventListener("click", (e) => {
+document.body.addEventListener("click", e => {
   if (e.target.id == "jogar-novamente") {
-    window.location.reload;
+    window.location.reload();
   }
 });
